@@ -1,22 +1,14 @@
 var express = require('express');
 var app = express();
-var concat = require('concat-stream');
+var logfmt = require('logfmt');
 
 app.set('port', (process.env.PORT || 5000));
 
-// custom middleware to store raw request bodies
-// can't use body-parser because it's very sensitive to content-types
-app.use(function(req, res, next){
-  req.pipe(concat(function(data){
-    req.body = data;
-    next();
-  }));
-});
+app.use(logfmt.bodyParser());
 
 app.post('/logs', function(req, res) {
-  var raw = Buffer(req.body).toString('utf8')
   console.log('received log:')
-  console.log(raw)
+  console.log(req.body)
   res.status(200).end()
 });
 
