@@ -16,9 +16,10 @@ setInterval(function() {
 }, 1000)
 
 // schedule a refresh on heroku processes
+sparoku.refresh()
 setInterval(function() {
   sparoku.refresh()
-}, 1000)
+}, 10000)
 
 // setup Express app to handle the logs
 var app = express();
