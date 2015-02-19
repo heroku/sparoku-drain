@@ -13,16 +13,16 @@
       "description": "The Heroku app name for the drain itself (please repeat it here)"
     },
     "SPARK_TOKEN": {
-      "description": "Access token to your Spark.io account"
+      "description": "Access token to your Spark.io account. It's in the output of `spark setup`"
     },
     "SPARK_DEVICE_ID": {
-      "description": "Your Spark Core device ID (eg: 12ab34cd...)"
+      "description": "Your Spark Core device ID (eg: 12ab34cd...). Check it with `spark list`"
     },
     "HEROKU_API_TOKEN": {
-      "description": "API token for your Heroku account"
+      "description": "API Key for your Heroku account. Check it in https://dashboard.heroku.com/account"
     },
     "HEROKU_APP_NAME": {
-      "description": "App that should be monitored"
+      "description": "Heroku app to monitor"
     }
   }
 }
