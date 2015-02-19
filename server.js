@@ -20,7 +20,7 @@ app.use(logfmt.bodyParser());
 var dynos = {}
 var requests = []
 
-// every 2s: update based on traffic
+// every second: update device with dyno summaries
 setInterval(function() {
   var status = {}
 
@@ -61,12 +61,6 @@ setInterval(function() {
     requests = [];
   }
 }, 1000)
-
-// to test:
-// setInterval(function() {
-//   requests.push({ dyno: 1, status: 200 })
-//   requests.push({ dyno: 2, status: 500 })
-// }, 100)
 
 app.post('/logs', function(req, res) {
   req.body.forEach(function(log) {
