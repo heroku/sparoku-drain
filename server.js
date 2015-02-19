@@ -23,9 +23,13 @@ setInterval(function() {
 
 // setup Express app to handle the logs
 var app = express();
+app.set('view engine', 'jade');
 app.set('port', (process.env.PORT || 5000));
-app.use(express.static(__dirname + '/public'));
 app.use(logfmt.bodyParser());
+
+app.get('/', function (req, res) {
+  res.render('index');
+})
 
 app.post('/logs', function(req, res) {
   req.body.forEach(function(log) {
