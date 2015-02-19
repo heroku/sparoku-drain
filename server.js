@@ -19,7 +19,7 @@ setInterval(function() {
 sparoku.refresh()
 setInterval(function() {
   sparoku.refresh()
-}, 10000)
+}, 6000)
 
 // setup Express app to handle the logs
 var app = express();
