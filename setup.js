@@ -18,7 +18,7 @@ var drainUrl = 'https://' + process.env.DRAIN_APP_NAME + '.herokuapp.com/logs'
 
 var url = '/apps/' + process.env.HEROKU_APP_NAME + '/log-drains'
 var payload = { url: drainUrl }
-var exists = false
+
 heroku.post(url, payload, function(err, drain) {
   if (err && err.statusCode == 422) {
     console.log('Drain already exists')
