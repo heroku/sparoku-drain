@@ -1,0 +1,27 @@
+{
+  "name": "Sparoku Log Drain",
+  "description": "Heroku log drain that emits stats about your dynos to a Spark Core device running Sparoku Status",
+  "repository": "https://github.com/heroku/sparoku-drain",
+  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["spark", "sparoku"],
+  "scripts": {
+    "postdeploy": "node setup.js"
+  },
+  "env": {
+    "SPARK_TOKEN": {
+      "description": "Access token to your Spark.io account"
+    },
+    "SPARK_DEVICE_ID": {
+      "description": "Your Spark Core device ID (eg: 12ab34cd...)"
+    },
+    "HEROKU_API_TOKEN": {
+      "description": "API token for your Heroku account"
+    },
+    "HEROKU_APP_NAME": {
+      "description": "App that should be monitored"
+    },
+    "DRAIN_APP_NAME": {
+      "description": "Your Heroku app name (please repeat it here)"
+    }
+  }
+}
