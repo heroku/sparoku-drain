@@ -42,11 +42,21 @@ setInterval(function() {
     return dyno + '=' + color
   })
 
-  if (update.length > 0) {
+  if (update.length > 0 && device) {
     var rawUpdate = update.reduce(function(prev, update) {
       return prev + ';' + update
     }) + ';'
 
+    device.callFunction('update', rawUpdate, function(err, data) {
+      if (err) {
+        console.log('device update failed:')
+        console.log(err)
+      }
+      else {
+        console.log('device update ok:')
+        console.log(data)
+      }
+    });
     console.log(rawUpdate)
     requests = [];
   }
