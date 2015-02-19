@@ -1,9 +1,15 @@
 var express = require('express');
 var app = express();
 var logfmt = require('logfmt');
+var spark = require('spark')
+
+spark.login({ accessToken: process.env.SPARK_TOKEN });
+spark.getDevice(process.env.SPARK_DEVICE_ID, function(err, device) {
+  device.callFunction('update', '50')
+})
+
 
 app.set('port', (process.env.PORT || 5000));
-
 app.use(logfmt.bodyParser());
 
 var dynos = {}
