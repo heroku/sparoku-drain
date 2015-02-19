@@ -10,12 +10,14 @@ spark.getDevice(process.env.SPARK_DEVICE_ID, function(err, d) {
   device = d;
 })
 
-// eek, store requests in a global for now. this can go to redis later
-var requests = []
-
-// update the device with dyno summaries once a second
+// schedule device update with dyno summaries
 setInterval(function() {
-  sparoku.update(requests, device)
+  sparoku.update(device)
+}, 1000)
+
+// schedule a refresh on heroku processes
+setInterval(function() {
+  sparoku.refresh()
 }, 1000)
 
 // setup Express app to handle the logs
@@ -25,10 +27,7 @@ app.use(logfmt.bodyParser());
 
 app.post('/logs', function(req, res) {
   req.body.forEach(function(log) {
-    if (log.heroku && log.router  && log.dyno && log.status) {
-      var dyno = log.dyno.replace(/\w+\./, "")
-      requests.push({ dyno: dyno, status: log.status })
-    }
+    sparoku.process(log)
   })
   res.status(200).end()
 });
