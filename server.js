@@ -47,6 +47,7 @@ setInterval(function() {
   }) + ';'
 
   console.log(rawUpdate)
+  requests = [];
 
 }, 1000)
 
