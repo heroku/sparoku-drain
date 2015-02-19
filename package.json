@@ -4,13 +4,18 @@
   "description": "Heroku log drain that integrates with Spark Button devices",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "mocha"
   },
   "dependencies": {
     "express": "^4.11.x",
     "heroku-client": "^1.9.x",
     "logfmt": "^1.2.x",
     "spark": "^0.2.6"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "mocha": "*"
   },
   "repository": {
     "type": "git",
