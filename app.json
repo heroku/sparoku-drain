@@ -21,7 +21,7 @@
       "description": "App that should be monitored"
     },
     "DRAIN_APP_NAME": {
-      "description": "Your Heroku app name (please repeat it here)"
+      "description": "The Heroku app name for the drain itself (please repeat it here)"
     }
   }
 }
