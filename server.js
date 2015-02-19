@@ -24,6 +24,7 @@ setInterval(function() {
 // setup Express app to handle the logs
 var app = express();
 app.set('port', (process.env.PORT || 5000));
+app.use(express.static(__dirname + '/public'));
 app.use(logfmt.bodyParser());
 
 app.post('/logs', function(req, res) {
