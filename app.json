@@ -2,7 +2,7 @@
   "name": "Sparoku Log Drain",
   "description": "Heroku log drain that emits stats about your dynos to a Spark Core device running Sparoku Status",
   "repository": "https://github.com/heroku/sparoku-drain",
-  "logo": "https://node-js-sample.herokuapp.com/node.svg",
+  "logo": "http://assets.heroku.com.s3.amazonaws.com/sparoku/spark-cloud.svg",
   "keywords": ["spark", "sparoku"],
   "scripts": {
     "postdeploy": "node setup.js"
