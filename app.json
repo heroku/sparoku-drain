@@ -9,9 +9,6 @@
   },
   "success_url": "/",
   "env": {
-    "DRAIN_APP_NAME": {
-      "description": "The Heroku app name for the drain itself (please repeat it here)"
-    },
     "SPARK_TOKEN": {
       "description": "Access token to your Spark.io account. It's in the output of `spark setup`"
     },
@@ -23,6 +20,9 @@
     },
     "HEROKU_APP_NAME": {
       "description": "Heroku app to monitor"
+    },
+    "DRAIN_APP_NAME": {
+      "description": "The Heroku app name for the drain itself (please repeat the app name given on top here)"
     }
   }
 }
