@@ -42,7 +42,6 @@ setInterval(function() {
     return dyno + '=' + color
   })
 
-  console.log('here: ' + update.length);
   if (update.length > 0) {
     var rawUpdate = update.reduce(function(prev, update) {
       return prev + ';' + update
