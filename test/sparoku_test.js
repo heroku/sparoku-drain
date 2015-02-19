@@ -32,4 +32,18 @@ describe('Sparoku', function() {
       assert.equal(sparoku.colors.green, sparoku.getColor(1, { success: 2, error: 1 }))
     });
   });
+
+  describe('requestsSummary', function() {
+    it('groups requests by dynos', function() {
+      sparoku.requests.push({ dyno: 1, status: 200 })
+      sparoku.requests.push({ dyno: 1, status: 304 })
+      sparoku.requests.push({ dyno: 2, status: 500 })
+      var status = sparoku.requestsSummary()
+      assert.equal(2, status['1'].success)
+      assert.equal(0, status['1'].error)
+      assert.equal(0, status['2'].success)
+      assert.equal(1, status['2'].error)
+    });
+  });
+
 })
