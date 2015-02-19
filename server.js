@@ -42,13 +42,15 @@ setInterval(function() {
     return dyno + '=' + color
   })
 
-  var rawUpdate = update.reduce(function(prev, update) {
-    return prev + ';' + update
-  }) + ';'
+  console.log('here: ' + update.length);
+  if (update.length > 0) {
+    var rawUpdate = update.reduce(function(prev, update) {
+      return prev + ';' + update
+    }) + ';'
 
-  console.log(rawUpdate)
-  requests = [];
-
+    console.log(rawUpdate)
+    requests = [];
+  }
 }, 1000)
 
 // to test:
