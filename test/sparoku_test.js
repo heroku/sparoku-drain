@@ -8,7 +8,7 @@ describe('Sparoku', function() {
     });
 
     it('handles dynos idle', function() {
-      assert.equal(sparoku.states.booting, sparoku.getState('idle', {}))
+      assert.equal(sparoku.states.idle, sparoku.getState('idle', {}))
     });
 
     it('handles dynos starting', function() {
