@@ -15,6 +15,10 @@ describe('Sparoku', function() {
       assert.equal(sparoku.states.booting, sparoku.getState('starting'))
     });
 
+    it('handles dynos restarting', function() {
+      assert.equal(sparoku.states.booting, sparoku.getState('restarting'))
+    });
+
     it('handles crashed dynos', function() {
       assert.equal(sparoku.states.crashed, sparoku.getState('crashed'))
     });
