@@ -2,31 +2,31 @@ var assert = require('chai').assert
 var sparoku = require('../lib/sparoku.js');
 
 describe('Sparoku', function() {
-  describe('getColor', function() {
-    it('is off when state is not set', function() {
-      assert.equal(sparoku.colors.off, sparoku.getColor(null, {}))
+  describe('getState', function() {
+    it('assumes down when state is not set', function() {
+      assert.equal(sparoku.states.down, sparoku.getState(null, {}))
     });
 
-    it('is blue when dyno is idle', function() {
-      assert.equal(sparoku.colors.blue, sparoku.getColor('idle', {}))
+    it('handles dynos idle', function() {
+      assert.equal(sparoku.states.booting, sparoku.getState('idle', {}))
     });
 
-    it('is blue when dyno is starting', function() {
-      assert.equal(sparoku.colors.blue, sparoku.getColor('starting', {}))
+    it('handles dynos starting', function() {
+      assert.equal(sparoku.states.booting, sparoku.getState('starting', {}))
     });
 
-    it('is red when dyno crashed', function() {
-      assert.equal(sparoku.colors.red, sparoku.getColor('crashed', {}))
+    it('handles crashed dynos', function() {
+      assert.equal(sparoku.states.crashed, sparoku.getState('crashed', {}))
     });
 
-    it('is red when dyno is serving 500s', function() {
+    it('flags dynos rendering a lot of 500s', function() {
       var stats = { success: 1, error: 2 }
-      assert.equal(sparoku.colors.red, sparoku.getColor('up', stats))
+      assert.equal(sparoku.states.error, sparoku.getState('up', stats))
     });
 
-    it('is green when dyno is working normally', function() {
+    it('indicates dynos working normally', function() {
       var stats = { success: 2, error: 1 }
-      assert.equal(sparoku.colors.green, sparoku.getColor('up', stats))
+      assert.equal(sparoku.states.up, sparoku.getState('up', stats))
     });
   });
 
